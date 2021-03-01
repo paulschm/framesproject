@@ -1,0 +1,198 @@
+:root {
+color-scheme: light dark; /* both supported */
+}
+
+body {
+white-space: pre-line;
+background-color: #FDF6E3;
+color: #657B83;
+padding: 20px;
+line-height: 150%;
+font-size: 1.1em;
+font-family: 'SF Mono', SFMono-Regular, ui-monospace, monospace;
+}
+
+code, article {
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 640px;
+}
+
+article {
+font-size: 0.9em;
+line-height: 180%;
+}
+
+.back::before {
+margin-right: 5px;
+vertical-align: top;
+content: "\25C0 \FE0E";
+font-size: 0.9em;
+}
+
+h1 {
+color: #4DABA1;
+font-size: 1.6em;
+margin: 0;
+}
+
+article h2 {
+margin-top: 2em;
+}
+
+a {
+color: #248BD3;
+text-decoration: none;
+}
+
+nav {
+margin: 10px 0;
+}
+
+nav a {
+color: black;
+}
+
+nav a.active {
+color: #777;
+text-decoration: underline;
+}
+
+b {
+color: black;
+}
+
+span {
+color: #D43A85;
+font-size: 1.2em;
+background-color: #F9F2DF;
+width: 100%;
+display: block;
+margin: 0;
+padding: 5px 0;
+border-radius: 6px;
+
+}
+
+span::before {
+content: '# ';
+font-size: 0.8em;
+margin-left: 5px;
+}
+
+h2 {
+font-size: 1.3em;
+margin: 0;
+font-size: 1.1em;
+
+}
+
+date, author, time {
+margin-top: 4px;
+font-size: 0.8em;
+color: #777;
+}
+
+author::before {
+content: ' by ';
+}
+
+pre {
+margin: 0;
+display: inline-block;
+max-width: 100%;
+overflow: scroll;
+background-color: #F9F2DF;
+}
+
+code code, article code {
+display: inline;
+color: #D43A85;
+background-color: #F9F2DF;
+padding: 2px;
+}
+
+.accessibilityToggle {
+display: block;
+margin-top: 20px;
+color: black;
+background-color: white;
+border: 2px solid black;
+width: 120px;
+padding: 4px 2px;
+font-weight: bold;
+border-radius: 4px;
+text-align: center;
+font-size: 13px;
+cursor: pointer;
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.accessibility {
+background-color: white;
+}
+
+
+body.accessibility article {
+font-family: sans-serif;
+color: black;
+}
+
+body.accessibility h1 {
+color: black;
+}
+
+body.accessibility .accessibilityToggle {
+color: white;
+background-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+/* defaults to dark theme */
+body {
+	background-color: #002B36;
+	color: #AAA;
+}
+b {
+	color: #FFF;
+}
+span, code code, article code, pre {
+	background-color: #083642;
+}
+nav a {
+	color: white;
+}
+
+body.accessibility {
+	background-color: #292929;
+}
+
+
+body.accessibility article {
+	color: white;
+}
+
+body.accessibility h1 {
+	color: white;
+}	
+}
+
+@media print {
+body {
+	background-color: white;
+}
+
+body article {
+	font-family: sans-serif;
+	color: black;
+}
+
+body h1 {
+	color: black;
+}
+
+.back, .accessibilityToggle {
+	display: none;
+}
+}
