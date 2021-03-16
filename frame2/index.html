@@ -8,74 +8,178 @@
 
 
 
+<body>
+	
+<nav> 
+	
+<a href="/">Project</a> | <a href="/frame1">Frame I</a> | <a href="/frame2">Frame II</a> | <a href="/frame3">Frame III</a>
+	
+	
+</nav>	
+
 <code>
-<h1>Frame II</h1> 
-
-<nav><a href="/">Home</a></nav> 
 
 
-<h2>Frames</h2>
-<a href="/frame1">Frame I</a>
-<a href="/frame2">Frame II</a>
-<a href="/frame3">Frame III</a>
+	
+<div class="logo">
+		<img src="/logo.svg" alt="Border Frames Logo">
+	</div>
 
+<article>
+	
+	<h1>II</h1> 
+		
+<author>Sophia Glinka</author>
 
-<canvas id="myChart" width="400" height="400">
-
-<script>
-	d3.json("./data.json", function(data) {
-        let nationality = [];
-        for (let i = 0; i < data.length; i++) {
-            nationality.push(data[i].nationality)
-            }
-        let labelNation = Array.from(new Set(nationality));
-        let numOfNationals = [];
-        for (let i = 0; i < labelNation.length; i++) {
-            numOfNationals.push(nationality.filter(nat => nat === labelNation[i]).length)
-        };
-		const ctx = document.getElementById('myChart');
-		const myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: labelNation,
-				datasets: [{
-					label: 'People in Immigration Detention (January - June 2020)',
-					data: numOfNationals,
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(54, 162, 235, 0.2)',
-						'rgba(255, 206, 86, 0.2)',
-						'rgba(75, 192, 192, 0.2)',
-						'rgba(153, 102, 255, 0.2)',
-						'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)',
-						'rgba(54, 162, 235, 1)',
-						'rgba(255, 206, 86, 1)',
-						'rgba(75, 192, 192, 1)',
-						'rgba(153, 102, 255, 1)',
-						'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero: true
-						}
-					}]
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo integer malesuada nunc vel risus. Sagittis eu volutpat odio facilisis mauris sit. Lectus quam id leo in vitae turpis. Bibendum est ultricies integer quis auctor elit sed vulputate mi. Ullamcorper dignissim cras tincidunt lobortis feugiat. Consectetur libero id faucibus nisl. Dolor sed viverra ipsum nunc aliquet bibendum. Suscipit adipiscing bibendum est ultricies integer quis auctor elit sed. Faucibus pulvinar elementum integer enim neque volutpat. Sit amet consectetur adipiscing elit ut aliquam purus sit. Fermentum et sollicitudin ac orci phasellus egestas. Non enim praesent elementum facilisis. Est sit amet facilisis magna etiam tempor orci. Sollicitudin nibh sit amet commodo nulla. Quis hendrerit dolor magna eget est lorem.
+</p>
+	<figure class='full-width'>
+<img src="bild1.jpg" alt="Trasse">
+	</figure>
+<h2>Ut pharetra sit amet aliquam</h2>
+<p>
+Ut pharetra sit amet aliquam id diam maecenas. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra. Non pulvinar neque laoreet suspendisse interdum. Risus feugiat in ante metus dictum at tempor commodo ullamcorper. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Nisl tincidunt eget nullam non nisi est sit amet. Sem et tortor consequat id porta nibh venenatis cras sed. Sagittis nisl rhoncus mattis rhoncus. Duis ut diam quam nulla porttitor massa. Egestas sed tempus urna et pharetra pharetra. Eu sem integer vitae justo.
+</p><p>
+Duis at consectetur lorem donec massa sapien faucibus. Tortor consequat id porta nibh venenatis cras sed felis eget. Vitae congue eu consequat ac felis. A condimentum vitae sapien pellentesque habitant. Suscipit tellus mauris a diam maecenas. Feugiat sed lectus vestibulum mattis. Quis viverra nibh cras pulvinar mattis nunc sed. Ullamcorper eget nulla facilisi etiam dignissim diam quis. Orci a scelerisque purus semper eget duis. Et malesuada fames ac turpis egestas maecenas. Lacus vel facilisis volutpat est velit egestas. In nibh mauris cursus mattis molestie. In est ante in nibh. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Quam viverra orci sagittis eu volutpat odio. Dolor morbi non arcu risus quis varius quam. Scelerisque eu ultrices vitae auctor eu. Elementum curabitur vitae nunc sed velit dignissim sodales.
+</p>
+<canvas id="natChart" width="500" height="500">
+	<script>
+		d3.json("./data.json", function(data) {
+			// load data with d3.json function (returns object) --> parse data in callback function
+			let nationality = [];
+			for (let i = 0; i < data.length; i++) {
+				nationality.push(data[i].nationality)
 				}
-			}
+			// push nationalities into array (incl. doubles) --> create new set to get rid of doubles
+			let labelNation = Array.from(new Set(nationality));
+			let numOfNationals = [];
+			// count how many times a given nationality is found in the original array
+			for (let i = 0; i < labelNation.length; i++) {
+				numOfNationals.push(nationality.filter(nat => nat === labelNation[i]).length)
+			};
+			// create charts using chart.js syntax
+			const ctx = document.getElementById('natChart');
+			const myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					// x-axis
+					labels: labelNation,
+					datasets: [{
+						// y-axis
+						label: 'People in Immigration Detention (January - June 2020)',
+						data: numOfNationals,
+						backgroundColor: 'rgba(144, 119, 111, 0.4)',
+						borderColor: 'rgba(144, 119, 111, 1)',
+						borderWidth: 0.5,
+						barThickness: 'flex',
+					}]
+				},
+				options: {
+					labels: {
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true,
+							}
+						}]
+					}
+				}
+			});
 		});
-	});
-
-	
-	</script>
-	
+		</script>
 	</canvas>
 
 
+				
+				<p>
+					Duis at consectetur lorem donec massa sapien faucibus. Tortor consequat id porta nibh venenatis cras sed felis eget. Vitae congue eu consequat ac felis. A condimentum vitae sapien pellentesque habitant. Suscipit tellus mauris a diam maecenas. Feugiat sed lectus vestibulum mattis. Quis viverra nibh cras pulvinar mattis nunc sed. Ullamcorper eget nulla facilisi etiam dignissim diam quis. Orci a scelerisque purus semper eget duis. Et malesuada fames ac turpis egestas maecenas. Lacus vel facilisis volutpat est velit egestas. In nibh mauris cursus mattis molestie. In est ante in nibh. Cras semper auctor neque vitae tempus quam pellentesque nec nam. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Quam viverra orci sagittis eu volutpat odio. Dolor morbi non arcu risus quis varius quam. Scelerisque eu ultrices vitae auctor eu. Elementum curabitur vitae nunc sed velit dignissim sodales.
+					</p>
+				
+				<canvas id="durationChart" width="500" height="500">
+					<script>
+						d3.json("./data.json", function(data) {
+							let durations = [];
+							for (let i = 0; i < data.length; i++) {
+								durations.push(data[i].duration)
+							}
+							
+							const labelDuration = ["up to 4 days", 
+													"up to two weeks", 
+													"up to one month", 
+													"up to three months", 
+													"more than three months"
+													]
+							let a = 0; // 1 - 4 days
+							let b = 0; // 5 - 14 days
+							let c = 0; // 15 - 31 days
+							let d = 0; // 32 - 93 days
+							let e = 0; // more than 94 days (over 3 months)
+				
+							let total = 0;
+				
+							for (let i = 0; i < durations.length; i++) {
+								let dur = durations[i];
+								total += dur;
+								if (dur < 5) {
+									a++
+								} else if (dur < 15) {
+									b++
+								} else if (dur < 31) {
+									c++
+								} else if (dur < 93) {
+									d++
+								} else {
+									e++
+								};
+							};
+							const detaineesPerDuration = [a, b, c, d, e]
+							const averageDuration = total / durations.length
+				
+							// create charts using chart.js syntax
+							const ctx = document.getElementById('durationChart');
+							const myChart = new Chart(ctx, {
+								type: 'bar',
+								data: {
+									// x-axis
+									labels: labelDuration,
+									datasets: [{
+										// y-axis
+										label: 'Number of Detainees by Detention Duration (up to June 2020)',
+										data: detaineesPerDuration,
+										backgroundColor: 'rgba(144, 119, 111, 0.4)',
+										borderColor: 'rgba(144, 119, 111, 1)',
+										borderWidth: 0.5,
+										barThickness: 'flex',
+									}]
+								},
+								options: {
+									labels: {
+									},
+									scales: {
+										yAxes: [{
+											ticks: {
+												beginAtZero: true,
+											}
+										}]
+									}
+								}
+							});
+						});
+						</script>
+						
+					</canvas>
+				<a href="https://www.parlament.gv.at/PAKT/VHG/XXVII/AB/AB_02504_U1/index.shtml" target="_blank">Source: Parlament Republik Österreich</a>
+				
+	</canvas>
+<p>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo integer malesuada nunc vel risus. Sagittis eu volutpat odio facilisis mauris sit. Lectus quam id leo in vitae turpis. Bibendum est ultricies integer quis auctor elit sed vulputate mi. Ullamcorper dignissim cras tincidunt lobortis feugiat. Consectetur libero id faucibus nisl. Dolor sed viverra ipsum nunc aliquet bibendum. Suscipit adipiscing bibendum est ultricies integer quis auctor elit sed. Faucibus pulvinar elementum integer enim neque volutpat. Sit amet consectetur adipiscing elit ut aliquam purus sit. Fermentum et sollicitudin ac orci phasellus egestas. Non enim praesent elementum facilisis. Est sit amet facilisis magna etiam tempor orci. Sollicitudin nibh sit amet commodo nulla. Quis hendrerit dolor magna eget est lorem.
+	</p>
+</article>
+
+<footer>Cross-Disciplinary Strategies, University of Applied Arts Vienna - 2021</footer>
+
 </code>
+
+</body>

@@ -1,198 +1,203 @@
 :root {
-color-scheme: light dark; /* both supported */
-}
-
-body {
-white-space: pre-line;
-background-color: #FDF6E3;
-color: #657B83;
-padding: 20px;
-line-height: 150%;
-font-size: 1.1em;
-font-family: 'SF Mono', SFMono-Regular, ui-monospace, monospace;
-}
-
-code, article {
-display: block;
-margin-left: auto;
-margin-right: auto;
-max-width: 640px;
-}
-
-article {
-font-size: 0.9em;
-line-height: 180%;
-}
-
-.back::before {
-margin-right: 5px;
-vertical-align: top;
-content: "\25C0 \FE0E";
-font-size: 0.9em;
-}
-
-h1 {
-color: #4DABA1;
-font-size: 1.6em;
-margin: 0;
-}
-
-article h2 {
-margin-top: 2em;
-}
-
-a {
-color: #248BD3;
-text-decoration: none;
-}
-
+	color-scheme: light dark; /* both supported */
+	}
+	
+	
+	@font-face {
+	font-family: 'CMU Serif Roman';
+	font-style: normal;
+	font-weight: normal;
+	src: local('CMU Serif Roman'), url('/fonts/cmunrm.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'CMU Serif Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('CMU Serif Italic'), url('/fonts/cmunti.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'CMU Serif Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('CMU Serif Bold'), url('/fonts/cmunbx.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'CMU Serif BoldItalic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('CMU Serif BoldItalic'), url('/fonts/cmunbi.woff') format('woff');
+	}
+	
+	
+	body {
+	background-color: #eae8e5;
+	color: #424d51;
+	line-height: 80%;
+	font-size: 1em;
+	font-family: 'CMU Serif Italic', serif;
+	}
+	
+	code, article, nav {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 640px;
+	}
+	
+	article {
+	font-size: 1.2em;
+	line-height: 175%;
+	text-align: justify;
+	}
+	
+	.logo {
+		display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		  margin-bottom: 5em;
+		  margin-top: 2em;
+		  max-width: 25vw;
+	}
+	
+	img {
+		display: block;
+		margin-left: auto;
+		  margin-right: auto;
+		  width: 100%;
+		  margin-bottom: 1em;
+		  
+	}
+	
+	
+	
+	h1 {
+	color: #2c2f2e;
+	font-size: 1.6em;
+	margin-bottom: 0.2em;
+	font-family: 'CMU Serif Bold', serif;
+	}
+	
+	article h2 {
+	margin-top: 2em;
+	font-size: 1.4em;
+	
+	}
+	
+	.full-width {
+		  width: 100vw;
+		  position: relative;
+		  left: 50%;
+		  right: 50%;
+		  margin-left: -50vw;
+		  margin-right: -50vw;
+		}
+	
+	a {
+	color: #777;
+	text-decoration: underline;	
+	}
+	
+	
 nav {
-margin: 10px 0;
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 4em;
+	
+	
 }
-
-nav a {
-color: black;
-}
-
-nav a.active {
-color: #777;
-text-decoration: underline;
-}
-
-b {
-color: black;
-}
-
-span {
-color: #D43A85;
-font-size: 1.2em;
-background-color: #F9F2DF;
-width: 100%;
-display: block;
-margin: 0;
-padding: 5px 0;
-border-radius: 6px;
-
-}
-
-span::before {
-content: '# ';
-font-size: 0.8em;
-margin-left: 5px;
-}
-
-h2 {
-font-size: 1.3em;
-margin: 0;
-font-size: 1.1em;
-
-}
-
-date, author, time {
-margin-top: 4px;
-font-size: 0.8em;
-color: #777;
-}
-
-author::before {
-content: ' by ';
-}
-
-pre {
-margin: 0;
-display: inline-block;
-max-width: 100%;
-overflow: scroll;
-background-color: #F9F2DF;
-}
-
-code code, article code {
-display: inline;
-color: #D43A85;
-background-color: #F9F2DF;
-padding: 2px;
-}
-
-.accessibilityToggle {
-display: block;
-margin-top: 20px;
-color: black;
-background-color: white;
-border: 2px solid black;
-width: 120px;
-padding: 4px 2px;
-font-weight: bold;
-border-radius: 4px;
-text-align: center;
-font-size: 13px;
-cursor: pointer;
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-body.accessibility {
-background-color: white;
-}
-
-
-body.accessibility article {
-font-family: sans-serif;
-color: black;
-}
-
-body.accessibility h1 {
-color: black;
-}
-
-body.accessibility .accessibilityToggle {
-color: white;
-background-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-/* defaults to dark theme */
-body {
-	background-color: #002B36;
-	color: #AAA;
-}
-b {
-	color: #FFF;
-}
-span, code code, article code, pre {
-	background-color: #083642;
-}
-nav a {
-	color: white;
-}
-
-body.accessibility {
-	background-color: #292929;
-}
-
-
-body.accessibility article {
-	color: white;
-}
-
-body.accessibility h1 {
-	color: white;
-}	
-}
-
-@media print {
-body {
-	background-color: white;
-}
-
-body article {
-	font-family: sans-serif;
+	
+	b {
 	color: black;
-}
+	}
+	
+	
+	
+	h2 {
+	font-size: 1.3em;
+	margin: 0;
+	font-size: 1.1em;
+	font-family: 'CMU Serif Bold';
+	margin-bottom: 0.5em;
+	}
+	
+	author {
+	font-size: 0.8em;
+	color: #777;
+	text-align: center;
+	font-family: 'CMU Serif Italic', serif;
+	}
+	
+	footer {
+	font-size: 0.7em;
+	text-align: center;
+	margin-bottom: 2em;
+	font-family: 'CMU Serif Italic', serif;
+	color: #777777;
 
-body h1 {
-	color: black;
-}
-
-.back, .accessibilityToggle {
-	display: none;
-}
-}
+		
+	}
+	
+	author::before {
+	content: ' by ';
+	}
+	
+	
+	@media (prefers-color-scheme: dark) {
+	/* defaults to dark theme */
+	body {
+		background-color: #002B36;
+		color: #AAA;
+	}
+	b {
+		color: #FFF;
+	}
+	span, code code, article code, pre {
+		background-color: #083642;
+	}
+	nav a {
+		color: white;
+	}
+	
+	h1, h2 {
+		color: white;
+		
+	}
+	
+	body.accessibility {
+		background-color: #292929;
+	}
+	
+	
+	body.accessibility article {
+		color: white;
+	}
+	
+	body.accessibility h1 {
+		color: white;
+	}	
+	}
+	
+	@media print {
+	body {
+		background-color: white;
+	}
+	
+	body article {
+		font-family: 'CMU Serif Italic', serif;
+		color: black;
+	}
+	
+	body h1 {
+		color: black;
+	}
+	
+	.back, .accessibilityToggle {
+		display: none;
+	}
+	}
